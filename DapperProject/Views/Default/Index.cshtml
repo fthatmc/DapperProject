@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("_UIHeadComponentPartial")
+<body>
+	
+	@await Component.InvokeAsync("_UINavbarComponentPartial")
+	@await Component.InvokeAsync("_UISliderComponentPartial")
+
+	<section class="ftco-search">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 search-wrap">
+					<h2 class="heading h5 d-flex align-items-center pr-4"><span class="ion-ios-search mr-3"></span> Search Property</h2>
+					<form action="#" class="search-property">
+						<div class="row">
+							<div class="col-md align-items-end">
+								<div class="form-group">
+									<label for="#">Keyword</label>
+									<div class="form-field">
+										<div class="icon"><span class="icon-pencil"></span></div>
+										<input type="text" class="form-control" placeholder="Keyword">
+									</div>
+								</div>
+							</div>
+							<div class="col-md align-items-end">
+								<div class="form-group">
+									<label for="#">Location</label>
+									<div class="form-field">
+										<div class="icon"><span class="icon-pencil"></span></div>
+										<input type="text" class="form-control" placeholder="City/Locality Name">
+									</div>
+								</div>
+							</div>
+							<div class="col-md align-items-end">
+								<div class="form-group">
+									<label for="#">Property Type</label>
+									<div class="form-field">
+										<div class="select-wrap">
+											<div class="icon"><span class="ion-ios-arrow-down"></span></div>
+											<select name="" id="" class="form-control">
+												<option value="">Type</option>
+												<option value="">Commercial</option>
+												<option value="">- Office</option>
+												<option value="">Residential</option>
+												<option value="">Villa</option>
+												<option value="">Condominium</option>
+												<option value="">Apartment</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md align-self-end">
+								<div class="form-group">
+									<div class="form-field">
+										<input type="submit" value="Search" class="form-control btn btn-primary">
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	@await Component.InvokeAsync("_UIResentPostComponentPartial")
+	@await Component.InvokeAsync("_UILast4PostComponentPartial")
+	@await Component.InvokeAsync("_UIStatisticsComponentPartial")
+	@await Component.InvokeAsync("_UITestimonialComponentPartial")
+	@await Component.InvokeAsync("_UIFooterComponentPartial")
+	@await Component.InvokeAsync("_UIScriptComponentPartial")
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+</body>
+</html>
