@@ -7,5 +7,7 @@ namespace DapperProject.Services.AdServices
     {
         Task<List<ResultAdDto>> GetAllAdWithOtherAsync();
         Task<List<ResultLast4AdsDto>> GetLast4AdsAsync();
-    }
+        Task<List<ResultResentAdPostDto>> GetResentAdPostAsync();
+		Task<int> GetAdCount();
+	}
 }

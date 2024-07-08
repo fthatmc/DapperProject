@@ -14,6 +14,14 @@ namespace DapperProject.Services.AgentServices
 			_context = context;
 		}
 
+		public async Task<int> GetAgentCount()
+		{
+			string query = "Select Count(*) From TblAgent";
+			var connection = _context.CreateConnection();
+			int value = await connection.QueryFirstOrDefaultAsync<int>(query);
+			return value;
+		}
+
 		public async Task<List<AgentDtos>> GetAllAgentsAsync()
 		{
 			string query = "Select * From TblAgent";

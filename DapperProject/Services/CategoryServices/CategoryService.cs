@@ -47,7 +47,15 @@ namespace DapperProject.Services.CategoryServices
             return values;
         }
 
-        public async Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto)
+		public async Task<int> GetCategoryCount()
+		{
+			string query = "Select Count(*) From TblCategory";
+			var connection = _context.CreateConnection();
+			int value = await connection.QueryFirstOrDefaultAsync<int>(query);
+			return value;
+		}
+
+		public async Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto)
         {
             string query = "Update TblCategory Set CategoryName=@categoryName where CategoryId=@categoryId";
             var parameters = new DynamicParameters();

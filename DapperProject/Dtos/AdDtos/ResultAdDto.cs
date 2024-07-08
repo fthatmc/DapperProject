@@ -14,7 +14,7 @@
         public int BuildAge { get; set; }
         public string Description1 { get; set; }
         public string Description2 { get; set; }
-        public bool IsRentorSale { get; set; }
+        public bool IsResent { get; set; }
 		public int CategoryId { get; set; }
 		public string CategoryName { get; set; }
 		public int ImageId { get; set; }

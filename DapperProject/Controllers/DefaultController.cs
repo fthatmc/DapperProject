@@ -10,3 +10,8 @@ namespace DapperProject.Controllers
         }
     }
 }
+
+
+//listelemler bitti, id ye ve filtreye göre sayfalar yapılacak
+//pagelist
+//sonra crud işlemler

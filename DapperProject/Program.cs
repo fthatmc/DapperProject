@@ -2,8 +2,10 @@ using DapperProject.Context;
 using DapperProject.Services.AdServices;
 using DapperProject.Services.AgentServices;
 using DapperProject.Services.CategoryServices;
+using DapperProject.Services.LocationServices;
 using DapperProject.Services.ProductServices;
 using DapperProject.Services.SliderServices;
+using DapperProject.Services.TestimonialServcies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,8 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IAdService, AdService>();
 builder.Services.AddScoped<IAgentService, AgentService>();
 builder.Services.AddScoped<ISliderService, SliderService>();
+builder.Services.AddScoped<ILocationService, LocationService>();
+builder.Services.AddScoped<ITestimonialService, TestimonialService>();
 
 var app = builder.Build();
 
