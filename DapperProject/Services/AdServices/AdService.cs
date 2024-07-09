@@ -30,7 +30,17 @@ namespace DapperProject.Services.AdServices
             return values.ToList();
         }
 
-		public async Task<List<ResultLast4AdsDto>> GetLast4AdsAsync()
+        public async Task<GetByIdAdDto> GetGetByIdAdAsync(int id)
+        {
+            string query = "Select AdId,AdTitle,Desciption,Price,Garage,BuildYear,SquareMeter,BedRooms,BathRooms,BuildAge,Description1,Description2,VideoUrl,ImageURL,IsResent,CategoryName,location,AdStiuation,TagName,Image1,Image2,Image3,Image4,Image5,Tag1,Tag2,Tag3,Tag4,Tag5 From TblAds INNER JOIN TblLocation On TblLocation.LocationId = TblAds.LocationId INNER JOIN  TblTag On TblTag.TagId = TblAds.TagId INNER JOIN TblCategory On TblCategory.CategoryId = TblAds.CategoryId INNER JOIN TblStiuation On TblStiuation.AdStiuationId = TblAds.AdStiuationId INNER JOIN TblImage On TblImage.ImageId = TblAds.ImageId Where AdId=@AdId";
+            var parameters = new DynamicParameters();
+            parameters.Add("@AdId", id);
+            var connection = _context.CreateConnection();
+            var values = await connection.QueryFirstOrDefaultAsync<GetByIdAdDto>(query, parameters);
+            return values;
+        }
+
+        public async Task<List<ResultLast4AdsDto>> GetLast4AdsAsync()
 		{
 			string query = "Select top 4 AdId,AdTitle,Desciption,Price,SquareMeter,BathRooms,BedRooms,ImageURL,CategoryName,Location,AdStiuation FROM TblAds INNER JOIN  TblLocation ON TblLocation.LocationId = TblAds.LocationId INNER JOIN TblStiuation ON TblStiuation.AdStiuationId = TblAds.AdStiuationId INNER JOIN  TblCategory ON TblCategory.CategoryId = TblAds.CategoryId Order by AdId Desc";
 			var connection = _context.CreateConnection();

@@ -1,5 +1,6 @@
 ﻿using DapperProject.Services.AdServices;
 using Microsoft.AspNetCore.Mvc;
+using X.PagedList;
 
 namespace DapperProject.Controllers
 {
@@ -12,15 +13,16 @@ namespace DapperProject.Controllers
 			_adService = adService;
 		}
 
-		public async Task<IActionResult>  Index()
+		public async Task<IActionResult>  Index(int page = 1)
 		{
 			var values = await _adService.GetAllAdWithOtherAsync();
-			return View(values);
+			return View(values.ToPagedList(page, 6));
 		}
 
-		public IActionResult AdDetail(int id)
+		public async Task<IActionResult> AdDetail(int id)
 		{
-			return View();
+			var value = await _adService.GetGetByIdAdAsync(id);
+			return View(value);
 		}
 	}
 }
