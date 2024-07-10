@@ -5,6 +5,7 @@ using DapperProject.Services.CategoryServices;
 using DapperProject.Services.LocationServices;
 using DapperProject.Services.ProductServices;
 using DapperProject.Services.SliderServices;
+using DapperProject.Services.StiuationService;
 using DapperProject.Services.TestimonialServcies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,7 @@ builder.Services.AddScoped<IAgentService, AgentService>();
 builder.Services.AddScoped<ISliderService, SliderService>();
 builder.Services.AddScoped<ILocationService, LocationService>();
 builder.Services.AddScoped<ITestimonialService, TestimonialService>();
+builder.Services.AddScoped<IStiuationService, StiuationService>();
 
 var app = builder.Build();
 

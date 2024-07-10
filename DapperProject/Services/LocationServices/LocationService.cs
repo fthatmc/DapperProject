@@ -1,6 +1,8 @@
 ﻿
 using Dapper;
 using DapperProject.Context;
+using DapperProject.Dtos.CategoryDtos;
+using DapperProject.Dtos.LocationDtos;
 
 namespace DapperProject.Services.LocationServices
 {
@@ -11,6 +13,14 @@ namespace DapperProject.Services.LocationServices
 		public LocationService(DapperContext context)
 		{
 			_context = context;
+		}
+
+		public async Task<List<ResultLocationDto>> GetAllLocationAsync()
+		{
+			string query = "Select * From TblLocation";
+			var connection = _context.CreateConnection();
+			var values = await connection.QueryAsync<ResultLocationDto>(query);
+			return values.ToList();
 		}
 
 		public async Task<int> GetLocationCount()

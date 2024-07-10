@@ -1,7 +1,4 @@
-﻿﻿@using X.PagedList;
-@using X.PagedList.Mvc.Core;
-
-@model IPagedList<ResultAdDto>
+﻿@model List<ResultAdDto>
 
 
 @{
@@ -21,8 +18,8 @@
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<p class="breadcrumbs"><span class="mr-2"><a href="/Default/Index/">Ana Sayfa</a></span> <span>İlanlar</span></p>
-					<h1 class="mb-3 bread">İlanlar</h1>
+					<p class="breadcrumbs"><span class="mr-2"><a href="/Default/Index/">Ana Sayfa</a></span> <span>Filtrele</span></p>
+					<h1 class="mb-3 bread">Filtrelenen İlanlar</h1>
 				</div>
 			</div>
 		</div>
@@ -53,7 +50,7 @@
 
 								<div class="d-flex">
 									<div class="one">
-										<h3><a href="property-single.html">@item.AdTitle</a></h3>
+										<h3><a href="property-single.html">@item.AdTitle @ViewBag.i </a></h3>
 										<p>@item.CategoryName</p>
 									</div>
 									<div class="two">
@@ -73,15 +70,7 @@
 				}
 
 			</div>
-			<div class="row mt-5">
-				<div class="col text-center">
-					<div class="block-27">
-						<ul>
-							@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
-						</ul>
-					</div>
-				</div>
-			</div>
+
 		</div>
 	</section>
 
@@ -91,3 +80,7 @@
 
 </body>
 </html>
+
+
+
+

@@ -9,5 +9,6 @@ namespace DapperProject.Services.AdServices
         Task<List<ResultResentAdPostDto>> GetResentAdPostAsync();
 		Task<int> GetAdCount();
         Task<GetByIdAdDto> GetGetByIdAdAsync(int id);
-    }
+		Task<List<ResultAdDto>> ResultAdSearchAync(int locationId, int categoryId, int adStiuationId);
+	}
 }

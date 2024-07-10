@@ -18,11 +18,13 @@ namespace DapperProject.Controllers
 			var values = await _adService.GetAllAdWithOtherAsync();
 			return View(values.ToPagedList(page, 6));
 		}
-
+		
 		public async Task<IActionResult> AdDetail(int id)
 		{
 			var value = await _adService.GetGetByIdAdAsync(id);
 			return View(value);
 		}
+
+		
 	}
 }

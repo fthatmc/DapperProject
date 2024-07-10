@@ -55,5 +55,19 @@ namespace DapperProject.Services.AdServices
 			var values = await connection.QueryAsync<ResultResentAdPostDto>(query);
 			return values.ToList();
 		}
+
+		public async Task<List<ResultAdDto>> ResultAdSearchAync(int locationId, int categoryId, int adStiuationId)
+		{
+			string query = "Select AdId,AdTitle,Desciption,Price,Garage,BuildYear,SquareMeter,BedRooms,BathRooms,BuildAge, ImageURL ,CategoryName,location,AdStiuation From TblAds INNER JOIN TblLocation On TblLocation.LocationId = TblAds.LocationId INNER JOIN TblCategory On TblCategory.CategoryId = TblAds.CategoryId INNER JOIN TblStiuation On TblStiuation.AdStiuationId = TblAds.AdStiuationId Where TblAds.LocationId =@locationId And TblAds.AdStiuationId =@AdStiuationId And TblAds.CategoryId =@CategoryId";
+			var parameters = new DynamicParameters();
+			parameters.Add("@LocationId", locationId);
+			parameters.Add("@AdStiuationId", adStiuationId);
+			parameters.Add("@CategoryId", categoryId);
+			using (var connection = _context.CreateConnection())
+			{
+				var values = await connection.QueryAsync<ResultAdDto>(query, parameters);
+				return values.ToList();
+			}
+		}
 	}
 }
