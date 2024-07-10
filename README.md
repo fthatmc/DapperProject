@@ -1,5 +1,5 @@
 
-## Slider ve Filtreleme Sayfası
+# Slider ve Filtreleme Sayfası
 ![1](https://github.com/fthatmc/DapperProject/assets/136472585/862a82f2-800b-471f-9614-813e3d28c9f6)
 ## En Çok Tercih Edilen İlanlar
 ![2](https://github.com/fthatmc/DapperProject/assets/136472585/a1430545-d957-4889-86ea-6ba9801606db)
