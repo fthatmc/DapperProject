@@ -1,4 +1,5 @@
 ﻿using DapperProject.Dtos.AdDtos;
+using DapperProject.Dtos.AgentDtos;
 
 namespace DapperProject.Services.AdServices
 {
@@ -10,5 +11,10 @@ namespace DapperProject.Services.AdServices
 		Task<int> GetAdCount();
         Task<GetByIdAdDto> GetGetByIdAdAsync(int id);
 		Task<List<ResultAdDto>> ResultAdSearchAync(int locationId, int categoryId, int adStiuationId);
-	}
+        Task CreateAdAsync(CreateAdDto createAgentDto);
+        Task UpdateAdAsync(UpdateAdDto updateAgentDto);
+        Task DeleteAdAsync(int id);
+        Task IsRecentTrue(int id);
+        Task IsRecentFalse(int id);
+    }
 }

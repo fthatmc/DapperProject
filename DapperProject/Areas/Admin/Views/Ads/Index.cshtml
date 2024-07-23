@@ -1,0 +1,68 @@
+﻿@model List<ResultAdDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="white_shd full margin_bottom_30">
+    <div class="full graph_head">
+        <div class="heading1 margin_0">
+            <h2>İlan Listesi</h2>
+        </div>
+    </div>
+    <div class="table_section padding_infor_info">
+        <div class="table-responsive-sm">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Başlık</th>
+                        <th>Lokasyon</th>
+                        <th>Kategori</th>
+                        <th>Ücret</th>
+                        <th>Açıklama</th>
+                        <th>Öne Çıkan İlan Mı?</th>
+                        <th>Öne Çıkan İlanlara Ekle</th>
+                        <th>Öne Çıkan İlanlardan Çıkar</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td>@item.AdTitle</td>
+                            <td>@item.Location</td>
+                            <td>@item.CategoryName</td>
+                            <td>@item.Price</td>
+                            <td>@item.Desciption</td>
+                            @if (item.IsResent)
+                            {
+                                <td><span class="badge badge-success">Evet</span></td>
+                            }
+                            else
+                            {
+                                <td><span class="badge badge-danger">Hayır</span></td>
+                            }
+                            <td><a href="/Admin/Ads/AdRecentTrue/@item.AdId" class="btn btn-success">✔</a></td>
+                            <td><a href="/Admin/Ads/AdRecentFalse/@item.AdId" class="btn btn-warning">X</a></td>
+                            <td><a href="/Admin/Ads/DeleteAds/@item.AdId/" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a href="/Admin/Ads/UpdateAds/@item.AdId/" class="btn btn-outline-info">Güncelle</a></td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+
+        </div>
+        <a href="/Admin/Ads/CreateAds/" class="btn btn-outline-success">Ekle</a>
+    </div>
+</div>
+

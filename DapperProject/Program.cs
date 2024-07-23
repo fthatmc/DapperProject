@@ -6,6 +6,7 @@ using DapperProject.Services.LocationServices;
 using DapperProject.Services.ProductServices;
 using DapperProject.Services.SliderServices;
 using DapperProject.Services.StiuationService;
+using DapperProject.Services.TagServices;
 using DapperProject.Services.TestimonialServcies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +23,7 @@ builder.Services.AddScoped<ISliderService, SliderService>();
 builder.Services.AddScoped<ILocationService, LocationService>();
 builder.Services.AddScoped<ITestimonialService, TestimonialService>();
 builder.Services.AddScoped<IStiuationService, StiuationService>();
+builder.Services.AddScoped<ITagService, TagService>();
 
 var app = builder.Build();
 
@@ -40,9 +42,6 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.UseEndpoints(endpoints =>
 {
@@ -51,6 +50,12 @@ app.UseEndpoints(endpoints =>
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
     );
 });
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 
 app.Run();

@@ -1,0 +1,66 @@
+﻿@model CreateTagDto
+
+@{
+    ViewData["Title"] = "CreateTag";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<script src="https://cdn.tiny.cloud/1/s4c5vnb6scu4v8ds2nwfbqdpl37i0p42pug9wd48yb07oguo/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea#tiny',
+        width:1200,
+        height:300,
+                        plugins: [
+            'a11ychecker', 'advlist', 'advcode', 'advtable', 'autolink', 'checklist', 'markdown',
+            'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks',
+            'powerpaste', 'fullscreen', 'formatpainter', 'insertdatetime', 'media', 'table', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | a11ycheck casechange blocks | bold italic backcolor | alignleft aligncenter alignright alignjustify |' +
+            'bullist numlist checklist outdent indent | removeformat | code table help'
+    })
+</script>
+
+<div class="col-md-12 mt-5">
+    <div class="white_shd full margin_bottom_30">
+        <div class="full graph_head">
+            <div class="heading1 margin_0">
+                <h2>Etiket Ekle</h2>
+            </div>
+        </div>
+        <div class="table_section padding_infor_info">
+            <div class="table-responsive-sm">
+                <form method="post">
+                    <div class="form-group">
+                        <label>Etiket Adı</label>
+                        <textarea id="tiny" name="TagName" class="form-control" cols="5" rows="5"></textarea>
+                        @* <input id="tiny" type="text" class="form-control" asp-for="TagName" /> *@
+                    </div>
+                    <div class="form-group">
+                        <label>Etiket-1</label>
+                        <input type="text" class="form-control" asp-for="Tag1" />
+                    </div>
+                    <div class="form-group">
+                        <label>Etiket-2</label>
+                        <input type="text" class="form-control" asp-for="Tag2" />
+                    </div>
+                    <div class="form-group">
+                        <label>Etiket-3</label>
+                        <input type="text" class="form-control" asp-for="Tag3" />
+                    </div>
+                    <div class="form-group">
+                        <label>Etiket-4</label>
+                        <input type="text" class="form-control" asp-for="Tag4" />
+                    </div>
+                    <div class="form-group">
+                        <label>Etiket-5</label>
+                        <input type="text" class="form-control" asp-for="Tag5" />
+                    </div>
+                    <button type="submit" class="btn btn-success">Ekle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -7,5 +7,10 @@ namespace DapperProject.Services.AgentServices
 	{
 		Task<List<AgentDtos>> GetAllAgentsAsync();
 		Task<int> GetAgentCount();
+		
+		Task CreateAgentAsync(CreateAgentDto createAgentDto);
+		Task UpdateAgentAsync(UpdateAgentDto updateAgentDto);
+		Task DeleteAgentAsync(int id);
+		Task<GetByIdAgentDto> GetByIdAgentAsync(int id);
 	}
 }

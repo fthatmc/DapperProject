@@ -1,0 +1,51 @@
+﻿@model List<AgentDtos>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="white_shd full margin_bottom_30">
+    <div class="full graph_head">
+        <div class="heading1 margin_0">
+            <h2>Emlakçı Listesi</h2>
+        </div>
+    </div>
+    <div class="table_section padding_infor_info">
+        <div class="table-responsive-sm">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Resim</th>
+                        <th>Adı Soyadı</th>
+                        <th>Açıklama</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td><img style="width:50px" class="img-responsive rounded-circle" src="@item.ImageURL" alt="#" /></td>
+                            <td>@item.AgentName</td>
+                            <td>@item.Description</td>
+                            <td><a href="/Admin/Agent/DeleteAgent/@item.AgentId/" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a href="/Admin/Agent/UpdateAgent/@item.AgentId/" class="btn btn-outline-info">Güncelle</a></td>
+                        </tr>
+                    }
+                    
+
+                </tbody>
+            </table>
+            
+        </div>
+        <a href="/Admin/Agent/CreateAgent/" class="btn btn-outline-success">Ekle</a>
+    </div>
+</div>
+

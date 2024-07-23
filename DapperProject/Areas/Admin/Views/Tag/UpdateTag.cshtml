@@ -1,0 +1,49 @@
+﻿@model GetByIdTagDto
+
+@{
+    ViewData["Title"] = "UpdateTag";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12 mt-5">
+    <div class="white_shd full margin_bottom_30">
+        <div class="full graph_head">
+            <div class="heading1 margin_0">
+                <h2>Etiket Güncelle</h2>
+            </div>
+        </div>
+        <div class="table_section padding_infor_info">
+            <div class="table-responsive-sm">
+                <form method="post">
+                    <div class="form-group">
+                        <input type="hidden" asp-for="TagId" />
+                        <label>Etiket Adı</label>
+                        <input type="text" class="form-control" asp-for="TagName" />
+                    </div>
+                    <div class="form-group">
+                        <label>Etiket-1</label>
+                        <input type="text" class="form-control" asp-for="Tag1" />
+                    </div>
+                    <div class="form-group">
+                        <label>Etiket-2</label>
+                        <input type="text" class="form-control" asp-for="Tag2" />
+                    </div>
+                    <div class="form-group">
+                        <label>Etiket-3</label>
+                        <input type="text" class="form-control" asp-for="Tag3" />
+                    </div>
+                    <div class="form-group">
+                        <label>Etiket-4</label>
+                        <input type="text" class="form-control" asp-for="Tag4" />
+                    </div>
+                    <div class="form-group">
+                        <label>Etiket-5</label>
+                        <input type="text" class="form-control" asp-for="Tag5" />
+                    </div>
+                    <button type="submit" class="btn btn-info">Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

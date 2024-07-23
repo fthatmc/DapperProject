@@ -2,6 +2,7 @@
 using DapperProject.Context;
 using DapperProject.Dtos.AdDtos;
 using DapperProject.Dtos.AgentDtos;
+using DapperProject.Dtos.CategoryDtos;
 
 namespace DapperProject.Services.AgentServices
 {
@@ -12,6 +13,26 @@ namespace DapperProject.Services.AgentServices
 		public AgentService(DapperContext context)
 		{
 			_context = context;
+		}
+
+		public async Task CreateAgentAsync(CreateAgentDto createAgentDto)
+		{
+			string query = "insert into TblAgent (AgentName,Description,ImageUrl) values (@AgentName,@Description,@ImageUrl)";
+			var parameters = new DynamicParameters();
+			parameters.Add("@AgentName", createAgentDto.AgentName);
+			parameters.Add("@Description", createAgentDto.Description);
+			parameters.Add("@ImageUrl", createAgentDto.ImageURL);
+			var connection = _context.CreateConnection();
+			await connection.ExecuteAsync(query, parameters);
+		}
+
+		public async Task DeleteAgentAsync(int id)
+		{
+			string query = "Delete From TblAgent Where AgentId=@AgentId";
+			var parameters = new DynamicParameters();
+			parameters.Add("@AgentId", id);
+			var connection = _context.CreateConnection();
+			await connection.ExecuteAsync(query, parameters);
 		}
 
 		public async Task<int> GetAgentCount()
@@ -28,6 +49,28 @@ namespace DapperProject.Services.AgentServices
 			var connection = _context.CreateConnection();
 			var values = await connection.QueryAsync<AgentDtos>(query);
 			return values.ToList();
+		}
+
+		public async Task<GetByIdAgentDto> GetByIdAgentAsync(int id)
+		{
+			string query = "Select * From TblAgent Where AgentId=@AgentId";
+			var parameters = new DynamicParameters();
+			parameters.Add("@AgentId", id);
+			var connection = _context.CreateConnection();
+			var values = await connection.QueryFirstOrDefaultAsync<GetByIdAgentDto>(query, parameters);
+			return values;
+		}
+
+		public async Task UpdateAgentAsync(UpdateAgentDto updateAgentDto)
+		{
+			string query = "Update TblAgent Set AgentName=@AgentName,Description=@Description,ImageUrl=@ImageUrl where AgentId=@AgentId";
+			var parameters = new DynamicParameters();
+			parameters.Add("@AgentName", updateAgentDto.AgentName);
+			parameters.Add("@Description", updateAgentDto.Description);
+			parameters.Add("@ImageUrl", updateAgentDto.ImageURL);
+			parameters.Add("@AgentId", updateAgentDto.AgentId);
+			var connection = _context.CreateConnection();
+			await connection.ExecuteAsync(query, parameters);
 		}
 	}
 }

@@ -1,0 +1,57 @@
+﻿@model List<ResultTagDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count=0;
+}
+
+<div class="white_shd full margin_bottom_30">
+    <div class="full graph_head">
+        <div class="heading1 margin_0">
+            <h2>Etiket Listesi</h2>
+        </div>
+    </div>
+    <div class="table_section padding_infor_info">
+        <div class="table-responsive-sm">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Etiket Adı</th>
+                        <th>Etiket-1</th>
+                        <th>Etiket-2</th>
+                        <th>Etiket-3</th>
+                        <th>Etiket-4</th>
+                        <th>Etiket-5</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td>@item.TagName</td>
+                            <td>@item.Tag1</td>
+                            <td>@item.Tag2</td>
+                            <td>@item.Tag3</td>
+                            <td>@item.Tag4</td>
+                            <td>@item.Tag5</td>
+                            <td><a href="/Admin/Tag/DeleteTag/@item.TagId/" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a href="/Admin/Tag/UpdateTag/@item.TagId/" class="btn btn-outline-info">Güncelle</a></td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+
+        </div>
+        <a href="/Admin/Tag/CreateTag/" class="btn btn-outline-success">Ekle</a>
+    </div>
+</div>
+

@@ -1,0 +1,109 @@
+﻿@model CreateAdDto
+
+@{
+    ViewData["Title"] = "CreateAds";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-12 mt-5">
+    <div class="white_shd full margin_bottom_30">
+        <div class="full graph_head">
+            <div class="heading1 margin_0">
+                <h2>Yeni İlan Girişi</h2>
+            </div>
+        </div>
+        <div class="table_section padding_infor_info">
+            <div class="table-responsive-sm">
+                
+                <form method="post">
+
+                    <label>Başlık</label>
+                    <input type="text" asp-for="AdTitle" class="form-control" />
+                    <br />
+                    <label>Açıklama</label>
+                    <textarea rows="5" class="form-control" id="myeditor" asp-for="Desciption"></textarea>
+                    
+                    <br />
+                    <label>Ücret</label>
+                    <input type="text" asp-for="Price" class="form-control" />
+                    <br />
+                    <label>Metre Kare</label>
+                    <input type="text" class="form-control" asp-for="SquareMeter">
+                    <br />
+                    <label>Oda Sayısı</label>
+                    <input type="text" class="form-control" asp-for="BedRooms">
+                    <br />
+                    <label>Banyo Sayısı</label>
+                    <input type="text" class="form-control" asp-for="BathRooms">
+                    <br />
+                    <label>Garaj Sayısı</label>
+                    <input type="text" class="form-control" asp-for="Garage">
+                    <br />
+                    <label>Bina Yılı</label>
+                    <input type="text" class="form-control" asp-for="BuildYear">
+                    <br />
+                    <label>Bina Yaşı</label>
+                    <input type="text" class="form-control" asp-for="BuildAge">
+                    <br />
+                    <label>Açıklama-1</label>
+                    <textarea rows="5" class="form-control" id="myeditor" asp-for="Description1"></textarea>
+                    <br />
+                    <label>Açıklama-2</label>
+                    <textarea rows="5" class="form-control" id="myeditor" asp-for="Description2"></textarea>
+                    <br />
+                    
+                    <select class="form-select" id="select1" asp-for="IsResent">
+                        <option value="1">Evet</option>
+                        <option value="0">Hayır</option>
+                    </select>
+                    <label for="select1">Öne Çıkan İlan Mı?</label>
+                    <br />
+
+                    <select class="form-select" id="select2" asp-for="CategoryId">
+                        <option selected disabled>Seçiniz</option>
+                        @foreach (var item in ViewBag.category)
+                        {
+                            <option value="@item.CategoryId">@item.CategoryName</option>
+                        }
+                    </select>
+                    <label for="select2">Emlak Türü</label>
+                    <br />
+
+                    <select class="form-select" id="select3" asp-for="AdStiuationId">
+                        <option selected disabled>Seçiniz</option>
+                        @foreach (var item in ViewBag.stiuation)
+                        {
+                            <option value="@item.AdStiuationId">@item.AdStiuation</option>
+                        }
+
+                    </select>
+                    <label for="select3">Emlak Durumu</label>
+                   <br />
+
+                    <select class="form-select" id="select3" asp-for="TagId">
+                        <option selected disabled>Seçiniz</option>
+                        @foreach (var item in ViewBag.tag)
+                        {
+                            <option value="@item.TagId">@item.TagName</option>
+                        }
+                    </select>
+                    <label for="select3">Etiket Seçin</label>
+                    <br />
+                    <select class="form-select" id="select3" asp-for="LocationId">
+                        <option selected disabled>Seçiniz</option>
+                        @foreach (var item in ViewBag.location)
+                        {
+                            <option value="@item.LocationId">@item.Location</option>
+                        }
+                    </select>
+                    <label for="select3">Lokasyon Seçin</label>
+                    <button class="btn btn-outline-success">Kaydet</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
