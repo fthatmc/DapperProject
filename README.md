@@ -23,5 +23,6 @@ Dapper ORM ile geliştirilen bu proje bir emlak sitesidir. Bu rojede kullanıcı
 ## Emlakçılar
 ![emlakçılar](https://github.com/fthatmc/DapperProject/assets/136472585/5d8293a1-4b26-4e36-ab29-bee8873da3fe)
 
+## Admin
 
 
