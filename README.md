@@ -31,3 +31,8 @@ Dapper ORM ile geliştirilen bu proje bir emlak sitesidir. Bu rojede kullanıcı
 ## TinyMCE
 ![a-4](https://github.com/user-attachments/assets/c8e6df62-bdea-4b15-9802-e59c6c6c2ed6)
 
+## Kaggle Dataset
+
+![k-1](https://github.com/user-attachments/assets/e8b8ea0e-4294-4f66-aee8-827322f3f0ad)
+![k-2](https://github.com/user-attachments/assets/68c00d1b-43d5-4c7f-afd2-0fe32e3d22b1)
+
