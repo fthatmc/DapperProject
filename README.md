@@ -6,7 +6,7 @@ Dapper ORM ile geliştirilen bu proje bir emlak sitesidir. Bu rojede kullanıcı
 - Asp.Net Core 6.0
 - MSSQL
 - Dapper
-- Kaggle
+- Kaggle Dataset
 - Tinymce
 - PagedList
 - Html
