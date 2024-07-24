@@ -1,6 +1,18 @@
 # DapperProject
 
 Dapper ORM ile geliştirilen bu proje bir emlak sitesidir. Bu rojede kullanıcılar emlak ve emlakçıları görebilir; istediği lokasyon, kategori (apartman,triplex,villa..) ve emlak durumuna(kiralık,satılık) göre ilanları listeleyebilir ve ilan detay sayfasından emlak ile ilgili detaylı bilgilere ulaşabilir. ASP.NET Core 6.0 MVC kullanılarak geliştirilen bu projede tüm CRUD işlemler Dapper ORM üzerinden gerçekleştirilmiştir.
+ 
+## Kullanılan Teknolojiler
+- Asp.Net Core 6.0
+- MSSQL
+- Dapper
+- Kaggle
+- Tinymce
+- PagedList
+- Html
+- Css
+- JavaScript
+- Bootstrap
 
 ## Slider ve Filtreleme Sayfası
 ![1](https://github.com/fthatmc/DapperProject/assets/136472585/862a82f2-800b-471f-9614-813e3d28c9f6)
