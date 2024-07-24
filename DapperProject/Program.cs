@@ -2,6 +2,7 @@ using DapperProject.Context;
 using DapperProject.Services.AdServices;
 using DapperProject.Services.AgentServices;
 using DapperProject.Services.CategoryServices;
+using DapperProject.Services.DataServices;
 using DapperProject.Services.LocationServices;
 using DapperProject.Services.ProductServices;
 using DapperProject.Services.SliderServices;
@@ -24,6 +25,7 @@ builder.Services.AddScoped<ILocationService, LocationService>();
 builder.Services.AddScoped<ITestimonialService, TestimonialService>();
 builder.Services.AddScoped<IStiuationService, StiuationService>();
 builder.Services.AddScoped<ITagService, TagService>();
+builder.Services.AddScoped<IDataService, DataService>();
 
 var app = builder.Build();
 

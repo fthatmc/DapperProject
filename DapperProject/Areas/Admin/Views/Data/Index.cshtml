@@ -1,0 +1,61 @@
+﻿@model List<ResultDataDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="white_shd full margin_bottom_30">
+    <div class="full graph_head">
+        <div class="heading1 margin_0">
+            <h2>Araç Listesi</h2>
+        </div>
+    </div>
+    <div class="table_section padding_infor_info">
+        <div class="table-responsive-sm">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Marka</th>
+                        <th>Model</th>
+                        <th>Yıl</th>
+                        <th>Yakıt</th>
+                        <th>Vites</th>
+                        <th>Motor</th>
+                        <th>Kasa Tipi</th>
+                        <th>Varyantı</th>
+                        <th>Sil</th>
+                        <th>Güncelle</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        count++;
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td>@item.BRAND</td>
+                            <td>@item.MODEL</td>
+                            <td>@item.YEAR</td>
+                            <td>@item.FUEL</td>
+                            <td>@item.SHIFTTYPE</td>
+                            <td>@item.MOTORVOLUME</td>
+                            <td>@item.CASETYPE</td>
+                            <td>@item.VARIANT</td>
+                            <td><a href="/Admin/Data/DeleteData/@item.ID/" class="btn btn-outline-danger">Sil</a></td>
+                            <td><a href="/Admin/Data/UpdateData/@item.ID/" class="btn btn-outline-info">Güncelle</a></td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+
+        </div>
+        <a href="/Admin/Data/CreateData/" class="btn btn-outline-success">Ekle</a>
+    </div>
+</div>
+
